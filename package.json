@@ -1,0 +1,11 @@
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "clean": "rimraf dist/*",
+    "lint": "tslint -c tslint.json -p tsconfig.json --fix",
+    "tsc": "tsc",
+    "routes": "tsoa routes && tsoa spec",
+    "build": "npm-run-all clean lint tsc routes",
+    "dev:start": "npm-run-all build start",
+    "start": "node dist/src/server.js",
+    "prewatch-and-run": "npm-run-all lint routes",
+    "watch-and-run": "ts-node-dev --respawn -- src/server.ts",
+    "dev": "npm run watch-and-run"
